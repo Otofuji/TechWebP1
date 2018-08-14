@@ -10,6 +10,10 @@ h1 {
   
 }
 
+h2 {
+	color: SeaGreen;
+	font-weight: 300;
+}
 
 p,
 li {
