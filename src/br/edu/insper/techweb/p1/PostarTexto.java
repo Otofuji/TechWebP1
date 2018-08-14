@@ -17,9 +17,9 @@ public class PostarTexto extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public void PostarTexto(HttpServletRequest request, HttpServletResponse response)) throws IOException, ServletException {
+    public void PostarTexto(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         
-    	PrintWriter ourt = response.getWriter();
+    	PrintWriter out = response.getWriter();
     	String texto = request.getParameter("nota");
     	out.println("<html>");
     	out.println("<body>");
