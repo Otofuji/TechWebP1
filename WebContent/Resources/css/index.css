@@ -5,15 +5,35 @@
 
 h1 {
   color: SeaGreen;
+  font-weight: 700;
+  
+  
 }
 
 
 p,
 li {
+  
   font-size: 18px;
+  font-weight: 300;
+}
+
+semi {
+	font-size: 18px;
+	font-weight: 600;
+	
 }
 
 
 a {
   text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+body {
+    text-align: center;
+}
+form {
+    display: inline-block;
 }

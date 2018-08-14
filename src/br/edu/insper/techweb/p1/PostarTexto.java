@@ -17,9 +17,14 @@ public class PostarTexto extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PostarTexto() {
-        super();
-        // TODO Auto-generated constructor stub
+    public void PostarTexto(HttpServletRequest request, HttpServletResponse response)) throws IOException, ServletException {
+        
+    	PrintWriter ourt = response.getWriter();
+    	String texto = request.getParameter("nota");
+    	out.println("<html>");
+    	out.println("<body>");
+    	out.println("Nota: " + nota);
+    	
     }
 
 	/**
