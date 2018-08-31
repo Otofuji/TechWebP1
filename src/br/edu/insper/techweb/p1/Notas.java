@@ -19,6 +19,6 @@ public class Notas {
 	public String getConteudoNota() {return conteudo_nota;}
 	public void setConteudoNota(String conteudo_nota) {this.conteudo_nota = conteudo_nota;}
 	public Integer getCategoria() {return categoria;}
-	public void setCategoria(Integer categoria) {this.categoria = categoria;}
+	//A FAZER: referenciar catetegoria para categoria
 
 }
