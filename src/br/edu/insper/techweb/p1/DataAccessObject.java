@@ -182,5 +182,43 @@ public class DataAccessObject {
 	
 	
 	
-	
+	public void adicionaUsuario(Usuarios usuario) {
+		String sql = "INSET INTO Usuarios" + "(id_usuario,email,nome,sobrenome) values(?,?,?,?)";
+		PreparedStatement stmt = null;
+		try {
+			stmt = connection.prepareStatement(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.setInt(1, usuario.getIdUsuario());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.setString(2, usuario.getEmail());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.setString(3, usuario.getNome());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.setString(4, usuario.getSobrenome());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
