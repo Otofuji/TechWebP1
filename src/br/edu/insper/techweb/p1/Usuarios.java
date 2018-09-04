@@ -2,7 +2,7 @@ package br.edu.insper.techweb.p1;
 
 
 
-public class Usuario {
+public class Usuarios {
 	private Integer id_usuario;
 	private String email;
 	private String nome;

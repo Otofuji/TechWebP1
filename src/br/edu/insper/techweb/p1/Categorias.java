@@ -1,6 +1,6 @@
 package br.edu.insper.techweb.p1;
 
-public class Categoria {
+public class Categorias {
 	private Integer id_usuario;
 	private Integer id_nota;
 	private String categoria;
