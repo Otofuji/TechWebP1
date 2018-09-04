@@ -221,4 +221,75 @@ public class DataAccessObject {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
+	public void adicionaCategoria(Categorias categoria) {
+		String sql = "INSET INTO Categorias" + "(id_categoria,categoria) values(?,?)";
+		PreparedStatement stmt = null;
+		try {
+			stmt = connection.prepareStatement(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.setInt(1, categoria.getIdNota());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.setString(2, categoria.getCategoria());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			stmt.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	public void adicionaNota(Notas nota) {
+		String sql = "INSET INTO Notas" + "(id_nota,tipo_nota,conteudo_nota) values(?,?,?)";
+		PreparedStatement stmt = null;
+		try {
+			stmt = connection.prepareStatement(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.setInt(1, nota.getIdNota());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.setInt(2, nota.getTipoNota());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.setString(3, nota.getConteudoNota());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			stmt.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
