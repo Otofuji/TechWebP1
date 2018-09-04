@@ -168,4 +168,19 @@ public class DataAccessObject {
 		return notas;
 		
 	}
+	
+	
+	public void close() {
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	
+	
+	
 }
