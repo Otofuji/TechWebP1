@@ -28,7 +28,7 @@ public class DAO {
 	}
 	
 	public List<Usuarios> getListaUsuarios() {
-		//TODO colocar isto em uma outra classe
+		
 		List<Usuarios> usuarios = new ArrayList<Usuarios>();
 		PreparedStatement stmt = null;
 		try {
@@ -78,7 +78,6 @@ public class DAO {
 	
 	
 	public List<Categorias> getListaCategorias() {
-		//TODO colocar isto em outra classe
 		List<Categorias> categorias = new ArrayList<Categorias>();
 		PreparedStatement stmt = null;
 		try {
@@ -129,7 +128,6 @@ public class DAO {
 	
 	
 	public List<Notas> getListaNotas() {
-		//TODO colocar isto em outra classe
 		List<Notas> notas = new ArrayList<Notas>();
 		PreparedStatement stmt = null;
 		try {
