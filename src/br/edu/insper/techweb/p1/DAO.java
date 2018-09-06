@@ -28,6 +28,7 @@ public class DAO {
 	}
 	
 	public List<Usuarios> getListaUsuarios() {
+		//TODO colocar isto em uma outra classe
 		List<Usuarios> usuarios = new ArrayList<Usuarios>();
 		PreparedStatement stmt = null;
 		try {
@@ -77,6 +78,7 @@ public class DAO {
 	
 	
 	public List<Categorias> getListaCategorias() {
+		//TODO colocar isto em outra classe
 		List<Categorias> categorias = new ArrayList<Categorias>();
 		PreparedStatement stmt = null;
 		try {
@@ -127,6 +129,7 @@ public class DAO {
 	
 	
 	public List<Notas> getListaNotas() {
+		//TODO colocar isto em outra classe
 		List<Notas> notas = new ArrayList<Notas>();
 		PreparedStatement stmt = null;
 		try {
@@ -233,10 +236,11 @@ public class DAO {
 			e.printStackTrace();
 		}
 		try {
-			stmt.setInt(1, categoria.getIdNota());
+			stmt.setInt(1, categoria.getIdCategoria());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
 		try {
 			stmt.setString(2, categoria.getCategoria());
 		} catch (SQLException e) {
@@ -248,6 +252,7 @@ public class DAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
 		try {
 			stmt.close();
 		} catch (SQLException e) {
@@ -291,5 +296,190 @@ public class DAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	
+	
+	public void alteraUsuario(Usuarios usuario) {
+		
+		String sql = "UPDATE Usuarios SET " + "email=?, nome=?, sobrenome=? WHERE id_usuario=?";
+		PreparedStatement stmt = null;
+		try {
+			stmt = connection.prepareStatement(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.setString(1,  usuario.getEmail());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.setString(2, usuario.getNome());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.setString(3,  usuario.getSobrenome());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.setInt(4, usuario.getIdUsuario());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	
+	public void alteraCategoria(Categorias categoria) {
+		String sql = "UPDATE Usuarios SET " + "categoria=? WHERE id_categoria=?";
+		PreparedStatement stmt = null;
+		try {
+			stmt = connection.prepareStatement(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.setString(1,  categoria.getCategoria());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.setInt(2,  categoria.getIdCategoria());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void alteraNota(Notas nota) {
+		String sql = "UPDATE Notas SET " + "tipo_nota=?, conteudo_nota=? WHERE id_nota=?";
+		PreparedStatement stmt = null;
+		try {
+			stmt = connection.prepareStatement(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.setInt(1, nota.getTipoNota());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.setString(2, nota.getConteudoNota());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.setInt(3, nota.getIdNota());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public void removeUsuario(Integer id_usuario) {
+		PreparedStatement stmt = null;
+		try {
+			stmt = connection.prepareStatement("DELETE FROM Usuarios WHERE id=?");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.setLong(1, id_usuario);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void removeCategoria(Integer id_categoria) {
+		PreparedStatement stmt = null;
+		try {
+			stmt = connection.prepareStatement("DELETE FROM Categorias WHERE id+?");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+				try {
+					stmt.setLong(1, id_categoria);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				try {
+					stmt.execute();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+	}
+	
+	public void removeNota(Integer id_nota) {
+		PreparedStatement stmt = null;
+		try {
+			stmt = connection.prepareStatement("DELETE FROM Notas WHERE id_nota=?");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+				try {
+					stmt.setLong(1,  id_nota);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				};
+				try {
+					stmt.execute();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				
 	}
 }
