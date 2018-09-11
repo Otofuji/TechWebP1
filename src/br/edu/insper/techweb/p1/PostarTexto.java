@@ -29,7 +29,6 @@ public class PostarTexto extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 		procces(request,response);
 	}
 
@@ -43,13 +42,28 @@ public class PostarTexto extends HttpServlet {
 	private void procces(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DAO dao = new DAO();
 		Notas nota = new Notas();
+		Usuarios usuario = new Usuarios();
+		Categorias categoria = new Categorias();
+		
 		String nota_form = request.getParameter("nota");
 		nota.setConteudoNota(nota_form);
+		nota.setIdNota(1);
+		nota.setTipoNota(1);
+		
+		usuario.setIdUsuario(1);
+		usuario.setEmail("email");
+		usuario.setNome("nome");
+		usuario.setSobrenome("sobrenome");
+		usuario.setSenha("senha");
+		
+		categoria.setCategoria("categoria");
+		categoria.setIdCategoria(1);
+		categoria.setIdNota(1);
+		
+		dao.adicionaUsuario(usuario);
+		dao.adicionaCategoria(categoria);
 		dao.adicionaNota(nota);
 		request.getRequestDispatcher("result.jsp").forward(request, response);
-		
-		//RequestDispatcher rd = request.getRequestDispatcher("result.jsp");
-		//rd.forward(request, response);
 	}
 
 }

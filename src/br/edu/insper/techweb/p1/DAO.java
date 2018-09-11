@@ -184,7 +184,7 @@ public class DAO {
 	
 	
 	public void adicionaUsuario(Usuarios usuario) {
-		String sql = "INSET INTO Usuarios" + "(id_usuario,email,nome,sobrenome) values(?,?,?,?)";
+		String sql = "INSERT INTO Usuarios" + "(id_usuario,email,nome,sobrenome,senha) values(?,?,?,?,?)";
 		PreparedStatement stmt = null;
 		try {
 			stmt = connection.prepareStatement(sql);
@@ -212,6 +212,11 @@ public class DAO {
 			e.printStackTrace();
 		}
 		try {
+			stmt.setString(5, usuario.getSenha());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
 			stmt.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -226,7 +231,7 @@ public class DAO {
 	
 	
 	public void adicionaCategoria(Categorias categoria) {
-		String sql = "INSET INTO Categorias" + "(id_categoria,categoria) values(?,?)";
+		String sql = "INSERT INTO Categorias" + "(id_categoria,categoria) values(?,?)";
 		PreparedStatement stmt = null;
 		try {
 			stmt = connection.prepareStatement(sql);
@@ -261,7 +266,7 @@ public class DAO {
 	
 	
 	public void adicionaNota(Notas nota) {
-		String sql = "INSET INTO Notas" + "(id_nota,tipo_nota,conteudo_nota) values(?,?,?)";
+		String sql = "INSERT INTO Notas" + "(id_nota,tipo_nota,conteudo_nota) values(?,?,?)";
 		PreparedStatement stmt = null;
 		try {
 			stmt = connection.prepareStatement(sql);

@@ -7,6 +7,7 @@ public class Usuarios {
 	private String email;
 	private String nome;
 	private String sobrenome;
+	private String senha;
 	
 	public Integer getIdUsuario() {return this.id_usuario;}
 	public void setIdUsuario(Integer id_usuario) {this.id_usuario = id_usuario;}
@@ -16,6 +17,8 @@ public class Usuarios {
 	public void setNome(String nome) {this.nome = nome;}
 	public String getSobrenome() {return this.sobrenome;}
 	public void setSobrenome(String sobrenome) {this.sobrenome = sobrenome;}
+	public String getSenha() {return this.senha;}
+	public void setSenha(String senha) {this.senha = senha;}
 	
 
 }
