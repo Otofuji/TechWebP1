@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <servlet>
+ <servlet-name>postarTexto</servlet-name>
+ <servlet-class>br.edu.insper.techweb.PostarTexto</servlet-class>
+ 
+  <servlet-mapping>
+ <servlet-name>postarTexto</servlet-name>
+ <url-pattern>result.jsp</url-pattern>
+ </servlet-mapping> 
+ </servlet> 

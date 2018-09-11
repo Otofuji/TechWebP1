@@ -30,6 +30,7 @@ public class PostarTexto extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		procces(request,response);
 	}
 
 	/**
@@ -41,8 +42,10 @@ public class PostarTexto extends HttpServlet {
 	
 	private void procces(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nota = request.getParameter("nota");
-		RequestDispatcher rd = request.getRequestDispatcher("result.jsp");
-		rd.forward(request, response);
+		request.getRequestDispatcher("result.jsp").forward(request, response);
+		
+		//RequestDispatcher rd = request.getRequestDispatcher("result.jsp");
+		//rd.forward(request, response);
 	}
 
 }
