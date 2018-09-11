@@ -38,7 +38,7 @@
 		<br> <input type="text" name="nota"><br>
 		<input type="submit" value="Salvar" />
 	</form>
-<p>Você escreveu ${ conteudo}.</p>
+<p>Você escreveu: ${ conteudo}.</p>
 </body>
 </body>
 </html>
