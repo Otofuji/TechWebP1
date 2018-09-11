@@ -41,7 +41,9 @@ public class PostarTexto extends HttpServlet {
 	}
 	
 	private void procces(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nota = request.getParameter("nota");
+		Notas nota = new Notas();
+		String nota_form = request.getParameter("nota");
+		nota.setConteudoNota(nota_form);
 		request.getRequestDispatcher("result.jsp").forward(request, response);
 		
 		//RequestDispatcher rd = request.getRequestDispatcher("result.jsp");

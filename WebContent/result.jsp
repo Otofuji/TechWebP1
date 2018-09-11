@@ -7,7 +7,9 @@
 <body>
 <%@ page import="java.util.*,br.edu.insper.techweb.p1.*" %>
 <body>
-Você escreveu ${ param.nota}.
+<% Notas nota = new Notas();%>
+<% String conteudo = nota.getConteudoNota(); %>
+Você escreveu ${ conteudo}.
 </body>
 </body>
 </html>
