@@ -20,7 +20,7 @@ public class DAO {
 		}
 		
 		try {
-			connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep", "root", "MUDARSENHA");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep", "root", "vlm1998");
 		} catch (SQLException e) {
 
 			e.printStackTrace();
