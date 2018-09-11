@@ -9,14 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DAO {
-	private Connection connection = null;
 	
 	public void dao() {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep", "root", "vlm1998");
-		} catch (ClassNotFoundException | SQLException e) {
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep", "root", "vlm1998");
+		} 
+		
+		catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
 	}
@@ -24,44 +25,29 @@ public class DAO {
 	public List<Usuarios> getListaUsuarios() {
 		
 		List<Usuarios> usuarios = new ArrayList<Usuarios>();
-		PreparedStatement stmt = null;
-		try {
-			stmt = connection.prepareStatement("SELECT * FROM Usuarios");
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		}
-		ResultSet rs = null;
-		try {
-			rs = stmt.executeQuery();
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		}
 		
 		try {
+			PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Usuarios");
+			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Usuarios usuario = new Usuarios();
 				usuario.setIdUsuario(rs.getInt("id_usuario"));
 				usuario.setEmail(rs.getString("email"));
 				usuario.setNome(rs.getString("nome"));
 				usuario.setSobrenome(rs.getString("sobrenome"));
-				usuarios.add(usuario);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		try {
+				usuarios.add(usuario);}
+			
 			rs.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		try {
 			stmt.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		
+		} 
+		
+		
+		catch (SQLException e1) {
+			e1.printStackTrace();
 		}
 		
+	
 		return usuarios;
 		
 	}
@@ -73,41 +59,25 @@ public class DAO {
 	
 	public List<Categorias> getListaCategorias() {
 		List<Categorias> categorias = new ArrayList<Categorias>();
-		PreparedStatement stmt = null;
-		try {
-			stmt = connection.prepareStatement("SELECT * FROM Categorias");
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		}
-		ResultSet rs = null;
-		try {
-			rs = stmt.executeQuery();
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		}
 		
 		try {
+			PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Categorias");
+			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Categorias categoria = new Categorias();
 				categoria.setIdNota(rs.getInt("id_nota"));
 				categoria.setCategoria(rs.getString("categoria"));
 				categorias.add(categoria);
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		try {
 			rs.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		try {
 			stmt.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} 
+		
+		
+		catch (SQLException e1) {
+			e1.printStackTrace();
 		}
+	
 		
 		return categorias;
 		
@@ -136,7 +106,9 @@ public class DAO {
 				rs.close();
 				stmt.close();
 		}
-		}catch (SQLException e1) {
+		}
+		
+		catch (SQLException e1) {
 			e1.printStackTrace();
 		}		
 		return notas;
@@ -147,7 +119,9 @@ public class DAO {
 	public void close() {
 		try {
 			connection.close();
-		} catch (SQLException e) {
+		} 
+		
+		catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
@@ -168,6 +142,8 @@ public class DAO {
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
+		
+			
 			e.printStackTrace();
 		}
 	}
@@ -182,7 +158,9 @@ public class DAO {
 			stmt.setString(2, categoria.getCategoria());
 			stmt.execute();
 			stmt.close();
-		} catch (SQLException e) {
+		} 
+		
+		catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
@@ -197,7 +175,9 @@ public class DAO {
 			stmt.setString(3, nota.getConteudoNota());
 			stmt.execute();
 			stmt.close();
-		} catch (SQLException e) {
+		} 
+		
+		catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
@@ -215,7 +195,9 @@ public class DAO {
 			stmt.setInt(4, usuario.getIdUsuario());
 			stmt.execute();
 			stmt.close();
-		} catch (SQLException e) {
+		} 
+		
+		catch (SQLException e) {
 			e.printStackTrace();
 		}		
 	}
@@ -230,7 +212,9 @@ public class DAO {
 			stmt.setInt(2,  categoria.getIdCategoria());
 			stmt.execute();
 			stmt.close();
-		} catch (SQLException e) {
+		} 
+		
+		catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
@@ -244,7 +228,9 @@ public class DAO {
 			stmt.setInt(3, nota.getIdNota());
 			stmt.execute();
 			stmt.close();
-		} catch (SQLException e) {
+		} 
+		
+		catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
@@ -256,7 +242,9 @@ public class DAO {
 			stmt.setLong(1, id_usuario);
 			stmt.execute();
 			stmt.close();
-		} catch (SQLException e) {
+		} 
+		
+		catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
@@ -267,7 +255,9 @@ public class DAO {
 			stmt.setLong(1, id_categoria);
 			stmt.execute();
 			stmt.close();
-		} catch (SQLException e) {
+		} 
+		
+		catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
@@ -278,7 +268,9 @@ public class DAO {
 			stmt.setLong(1,  id_nota);
 			stmt.execute();
 			stmt.close();
-		} catch (SQLException e) {
+		} 
+		
+		catch (SQLException e) {
 			e.printStackTrace();
 		}
 				
