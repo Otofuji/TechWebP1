@@ -50,7 +50,7 @@ public class PostarTexto extends HttpServlet {
 		nota.setIdNota(1);
 		nota.setTipoNota(1);
 		
-		usuario.setIdUsuario(1);
+		usuario.setIdUsuario(4);
 		usuario.setEmail("email");
 		usuario.setNome("nome");
 		usuario.setSobrenome("sobrenome");
