@@ -47,18 +47,14 @@ public class PostarTexto extends HttpServlet {
 		
 		String nota_form = request.getParameter("nota");
 		nota.setConteudoNota(nota_form);
-		nota.setIdNota(1);
 		nota.setTipoNota(1);
 		
-		usuario.setIdUsuario(4);
 		usuario.setEmail("email");
 		usuario.setNome("nome");
 		usuario.setSobrenome("sobrenome");
 		usuario.setSenha("senha");
 		
 		categoria.setCategoria("categoria");
-		categoria.setIdCategoria(1);
-		categoria.setIdNota(1);
 		
 		dao.adicionaUsuario(usuario);
 		dao.adicionaCategoria(categoria);

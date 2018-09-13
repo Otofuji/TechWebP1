@@ -14,7 +14,7 @@ public class DAO {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep", "root", "USAR FIND/REPLACE PARA TROCAR SENHA EM TODAS AS CONNECTIONS");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "vlm1998");
 			
 		} 
 		
@@ -29,7 +29,7 @@ public class DAO {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep", "root", "USAR FIND/REPLACE PARA TROCAR SENHA EM TODAS AS CONNECTIONS");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "vlm1998");
 			PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Usuarios");
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
@@ -65,7 +65,7 @@ public class DAO {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep", "root", "USAR FIND/REPLACE PARA TROCAR SENHA EM TODAS AS CONNECTIONS");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "vlm1998");
 			PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Categorias");
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
@@ -100,7 +100,7 @@ public class DAO {
 		List<Notas> notas = new ArrayList<Notas>();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep", "root", "USAR FIND/REPLACE PARA TROCAR SENHA EM TODAS AS CONNECTIONS");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "vlm1998");
 			PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Notas");
 			ResultSet rs = stmt.executeQuery();
 			
@@ -126,7 +126,7 @@ public class DAO {
 	public void close() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep", "root", "USAR FIND/REPLACE PARA TROCAR SENHA EM TODAS AS CONNECTIONS");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "vlm1998");
 			connection.close();
 		} 
 		
@@ -140,16 +140,15 @@ public class DAO {
 	
 	
 	public void adicionaUsuario(Usuarios usuario) {
-		String sql = "INSERT INTO Usuarios" + "(id_usuario,email,nome,sobrenome,senha) values(?,?,?,?,?)";
+		String sql = "INSERT INTO Usuarios" + "(email,nome,sobrenome,senha) values(?,?,?,?)";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep", "root", "USAR FIND/REPLACE PARA TROCAR SENHA EM TODAS AS CONNECTIONS");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "vlm1998");
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setInt(1, usuario.getIdUsuario());
-			stmt.setString(2, usuario.getEmail());
-			stmt.setString(3, usuario.getNome());
-			stmt.setString(4, usuario.getSobrenome());
-			stmt.setString(5, usuario.getSenha());
+			stmt.setString(1, usuario.getEmail());
+			stmt.setString(2, usuario.getNome());
+			stmt.setString(3, usuario.getSobrenome());
+			stmt.setString(4, usuario.getSenha());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException | ClassNotFoundException e) {
@@ -162,13 +161,12 @@ public class DAO {
 	
 	
 	public void adicionaCategoria(Categorias categoria) {
-		String sql = "INSERT INTO Categorias" + "(id_categoria,categoria) values(?,?)";
+		String sql = "INSERT INTO Categorias" + "(categoria) values(?)";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep", "root", "USAR FIND/REPLACE PARA TROCAR SENHA EM TODAS AS CONNECTIONS");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "vlm1998");
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setInt(1, categoria.getIdCategoria());
-			stmt.setString(2, categoria.getCategoria());
+			stmt.setString(1, categoria.getCategoria());
 			stmt.execute();
 			stmt.close();
 		} 
@@ -180,13 +178,12 @@ public class DAO {
 	
 	
 	public void adicionaNota(Notas nota) {
-		String sql = "INSERT INTO Notas" + "(id_nota,tipo_nota,conteudo_nota) values(?,?,?)";
+		String sql = "INSERT INTO Notas" + "(tipo_nota,conteudo_nota) values(?,?)";
 		try {
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep", "root", "USAR FIND/REPLACE PARA TROCAR SENHA EM TODAS AS CONNECTIONS");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "vlm1998");
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setInt(1, nota.getIdNota());
-			stmt.setInt(2, nota.getTipoNota());
-			stmt.setString(3, nota.getConteudoNota());
+			stmt.setInt(1, nota.getTipoNota());
+			stmt.setString(2, nota.getConteudoNota());
 			stmt.execute();
 			stmt.close();
 		} 
@@ -203,7 +200,7 @@ public class DAO {
 		String sql = "UPDATE Usuarios SET " + "email=?, nome=?, sobrenome=? WHERE id_usuario=?";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep", "root", "USAR FIND/REPLACE PARA TROCAR SENHA EM TODAS AS CONNECTIONS");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "vlm1998");
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1,  usuario.getEmail());
 			stmt.setString(2, usuario.getNome());
@@ -224,7 +221,7 @@ public class DAO {
 		String sql = "UPDATE Usuarios SET " + "categoria=? WHERE id_categoria=?";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep", "root", "USAR FIND/REPLACE PARA TROCAR SENHA EM TODAS AS CONNECTIONS");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "vlm1998");
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1,  categoria.getCategoria());
 			stmt.setInt(2,  categoria.getIdCategoria());
@@ -241,7 +238,7 @@ public class DAO {
 		String sql = "UPDATE Notas SET " + "tipo_nota=?, conteudo_nota=? WHERE id_nota=?";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep", "root", "USAR FIND/REPLACE PARA TROCAR SENHA EM TODAS AS CONNECTIONS");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "vlm1998");
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setInt(1, nota.getTipoNota());
 			stmt.setString(2, nota.getConteudoNota());
@@ -259,7 +256,7 @@ public class DAO {
 	public void removeUsuario(Integer id_usuario) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep", "root", "USAR FIND/REPLACE PARA TROCAR SENHA EM TODAS AS CONNECTIONS");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "vlm1998");
 			PreparedStatement stmt = connection.prepareStatement("DELETE FROM Usuarios WHERE id=?");
 			stmt.setLong(1, id_usuario);
 			stmt.execute();
@@ -274,7 +271,7 @@ public class DAO {
 	public void removeCategoria(Integer id_categoria) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep", "root", "USAR FIND/REPLACE PARA TROCAR SENHA EM TODAS AS CONNECTIONS");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "vlm1998");
 			PreparedStatement stmt = connection.prepareStatement("DELETE FROM Categorias WHERE id+?");
 			stmt.setLong(1, id_categoria);
 			stmt.execute();
@@ -289,7 +286,7 @@ public class DAO {
 	public void removeNota(Integer id_nota) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep", "root", "USAR FIND/REPLACE PARA TROCAR SENHA EM TODAS AS CONNECTIONS");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "vlm1998");
 			PreparedStatement stmt = connection.prepareStatement("DELETE FROM Notas WHERE id_nota=?");
 			stmt.setLong(1,  id_nota);
 			stmt.execute();
