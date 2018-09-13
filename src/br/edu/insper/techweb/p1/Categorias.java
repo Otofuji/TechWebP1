@@ -1,6 +1,8 @@
 package br.edu.insper.techweb.p1;
 
 public class Categorias {
+	Usuarios usuario = new Usuarios();
+	
 	private Integer id_usuario;
 	private Integer id_categoria;
 	private Integer id_nota;
@@ -15,5 +17,6 @@ public class Categorias {
 	public void setIdNota(Integer id_nota) {this.id_nota = id_nota;}
 	public String getCategoria() {return this.categoria;}
 	public void setCategoria(String categoria) {this.categoria = categoria;}
+	public Integer setIdUsuario() {return usuario.getIdUsuario();}
 	
 }

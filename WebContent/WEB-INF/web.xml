@@ -6,6 +6,6 @@
  
   <servlet-mapping>
  <servlet-name>postarTexto</servlet-name>
- <url-pattern>result.jsp</url-pattern>
+ <url-pattern>/postarTexto/*</url-pattern>
  </servlet-mapping> 
  </servlet> 

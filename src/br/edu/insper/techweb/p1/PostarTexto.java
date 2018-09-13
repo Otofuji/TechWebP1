@@ -2,6 +2,11 @@ package br.edu.insper.techweb.p1;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class PostarTexto
  */
+
 @WebServlet("/postarTexto")
 public class PostarTexto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -45,16 +51,22 @@ public class PostarTexto extends HttpServlet {
 		Usuarios usuario = new Usuarios();
 		Categorias categoria = new Categorias();
 		
-		String nota_form = request.getParameter("nota");
-		nota.setConteudoNota(nota_form);
-		nota.setTipoNota(1);
-		
 		usuario.setEmail("email");
 		usuario.setNome("nome");
 		usuario.setSobrenome("sobrenome");
 		usuario.setSenha("senha");
+		usuario.setIdUsuario(dao.updateId_Usuario());
 		
 		categoria.setCategoria("categoria");
+		categoria.setIdUsuario();
+		categoria.setIdCategoria(dao.updateId_Categorias());
+		
+		String nota_form = request.getParameter("nota");
+		nota.setConteudoNota(nota_form);
+		nota.setTipoNota(1);
+		nota.setIdUsuario();
+		nota.setCategoria();
+		
 		
 		dao.adicionaUsuario(usuario);
 		dao.adicionaCategoria(categoria);
