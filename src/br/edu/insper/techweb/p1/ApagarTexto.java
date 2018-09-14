@@ -42,8 +42,9 @@ public class ApagarTexto extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 		DAO dao = new DAO();
-		Integer nota_form = request.getParameterValues(notaId);
-		dao.removeNota(custId);
+		String notaId_string = request.getParameter("notaId");
+		int notaId = Integer.parseInt(notaId_string);
+		dao.removeNota(notaId);
 		request.getRequestDispatcher("result.jsp").forward(request, response);
 	}
 	
