@@ -180,13 +180,14 @@ public class DAO {
 	
 	
 	public void adicionaNota(Notas nota) {
-		String sql = "INSERT INTO Notas" + "(tipo_nota,conteudo_nota, id_usuario) values(?,?,?)";
+		String sql = "INSERT INTO Notas" + "(tipo_nota,conteudo_nota, id_usuario, categoria) values(?,?,?,?)";
 		try {
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "vlm1998");
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setInt(1, nota.getTipoNota());
 			stmt.setString(2, nota.getConteudoNota());
 			stmt.setInt(3, 3);
+			stmt.setInt(4, nota.getCategoria());
 			stmt.execute();
 			stmt.close();
 		} 
