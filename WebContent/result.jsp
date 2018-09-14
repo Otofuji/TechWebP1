@@ -21,28 +21,29 @@
 			<div class="gb_je"></div>
 			<h1>WebKeep</h1>
 	</div>
-	<p>
-		Este projeto ainda está em desenvolvimento. Acompanhe o progresso no <a
-			href="https://github.com/Otofuji/TechWebP1" target="_blank">GitHub.</a>
-		Lançamento em 20 de setembro de 2018.
-	</p>
 
 	<form action="postarTexto" method = "post">
 		<semi> Nova nota </semi>
 		<br> <input type="text" name="nota"><br>
 	</form>
 
-<table border='1'>
+<table border='0'>
 <% DAO dao = new DAO();
  List<Notas> notas = dao.getListaNotas();
  for (Notas nota : notas ) { %>
  <tr>
- <td><%=nota.getConteudoNota()%>
+ <td>
+  <form action="${pageContext.request.contextPath}/apagarTexto" method="post">
+    <input type="hidden" id="custId" name="notaId" value="<%=nota.getIdNota()%>">
+    <input type="submit" name="apagar" value="x" />
+</form>
+<form action="${pageContext.request.contextPath}/editarTexto" method="post">
+    <input type="hidden" id="custId" name="notaId" value="<%=nota.getIdNota()%>">
+    <input type="submit" name="editar" value="+" />
+ <%=nota.getConteudoNota()%>
  
 
- <form action="${pageContext.request.contextPath}/apagarTexto" method="post">
-    <input type="hidden" id="custId" name="notaId" value="<%=nota.getIdNota()%>">
-    <input type="submit" name="apagar" value="Apagar" />
+
 </form>
  </td>
  
