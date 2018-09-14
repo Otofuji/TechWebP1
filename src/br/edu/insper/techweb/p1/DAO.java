@@ -39,8 +39,8 @@ public class DAO {
 				usuario.setEmail(rs.getString("email"));
 				usuario.setNome(rs.getString("nome"));
 				usuario.setSobrenome(rs.getString("sobrenome"));
-				usuarios.add(usuario);}
-			
+				usuarios.add(usuario);
+			}
 			rs.close();
 			stmt.close();
 		
@@ -111,9 +111,10 @@ public class DAO {
 				nota.setTipoNota(rs.getInt("tipo_nota"));
 				nota.setConteudoNota(rs.getString("conteudo_nota"));
 				notas.add(nota);
-				rs.close();
-				stmt.close();
 		}
+			rs.close();
+			stmt.close();
+
 		}
 		
 		catch (SQLException | ClassNotFoundException e1) {
