@@ -44,10 +44,10 @@
  for (Notas nota : notas ) { %>
  <tr>
  <td><%=nota.getConteudoNota()%>
- <nutton type="submit" value="Editar" />
- <button action="apagarTexto" method="post" type="submit" value="Apagar" />
+ <form action="${pageContext.request.contextPath}/apagarTexto" method="post">
+    <input type="submit" name="apagar" value="Apagar" />
+</form>
  </td>
- 
  
  </tr>
  <% } %>

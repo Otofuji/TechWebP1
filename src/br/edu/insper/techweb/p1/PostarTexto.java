@@ -15,9 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class PostarTexto
- */
 
 @WebServlet("/postarTexto")
 public class PostarTexto extends HttpServlet {

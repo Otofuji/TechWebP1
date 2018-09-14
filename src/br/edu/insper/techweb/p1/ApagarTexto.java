@@ -15,10 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class PostarTexto
- */
-
 @WebServlet("/apagarTexto")
 public class ApagarTexto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -50,9 +46,7 @@ public class ApagarTexto extends HttpServlet {
 	private void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DAO dao = new DAO();
 		Notas nota = new Notas();
-		Usuarios usuario = new Usuarios();
-		Categorias categoria = new Categorias();
-		
+		System.out.println("Id em Notas: "+ nota.getIdNota());
 		dao.removeNota(nota.getIdNota());
 		request.getRequestDispatcher("result.jsp").forward(request, response);
 	}
