@@ -34,7 +34,7 @@
 
 		<semi> Nova nota </semi>
 		<br> <input type="text" name="nota"><br>
-		<input type="submit" value="Salvar" />
+<!-- 		<input type="submit" value="Salvar" /> -->
 	</form>
 <!--<p>Você escreveu: ${ conteudo}.</p> -->
 
@@ -43,7 +43,12 @@
  List<Notas> notas = dao.getListaNotas();
  for (Notas nota : notas ) { %>
  <tr>
- <td><%=nota.getConteudoNota()%></td>
+ <td><%=nota.getConteudoNota()%>
+ <nutton type="submit" value="Editar" />
+ <button action="apagarTexto" method="post" type="submit" value="Apagar" />
+ </td>
+ 
+ 
  </tr>
  <% } %>
  </table>
