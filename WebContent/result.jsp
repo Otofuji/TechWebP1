@@ -15,8 +15,6 @@
 <body>
 <%@ page import="java.util.*,br.edu.insper.techweb.p1.*" %>
 <body>
-<% Notas nota = new Notas();%>
-<% String conteudo = nota.getConteudoNota(); %>
 <div id="ognwrapper">
 		<header class="gb_Ta gb_qb gb_Ed gb_Kd" ng-non-bindable="" id="gb"
 			role="banner" style="background-color: #fb0">
@@ -38,7 +36,17 @@
 		<br> <input type="text" name="nota"><br>
 		<input type="submit" value="Salvar" />
 	</form>
-<p>Você escreveu: ${ conteudo}.</p>
+<!--<p>Você escreveu: ${ conteudo}.</p> -->
+
+<table border='1'>
+<% DAO dao = new DAO();
+ List<Notas> notas = dao.getListaNotas();
+ for (Notas nota : notas ) { %>
+ <tr>
+ <td><%=nota.getConteudoNota()%></td>
+ </tr>
+ <% } %>
+ </table>
 </body>
 </body>
 </html>

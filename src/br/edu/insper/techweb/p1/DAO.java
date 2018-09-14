@@ -187,7 +187,7 @@ public class DAO {
 			stmt.setInt(1, nota.getTipoNota());
 			stmt.setString(2, nota.getConteudoNota());
 			stmt.setInt(3, 3);
-			stmt.setInt(4, nota.getCategoria());
+			stmt.setInt(4, 5);
 			stmt.execute();
 			stmt.close();
 		} 
