@@ -12,7 +12,7 @@ public class Notas {
 	
 	public Integer getIdUsuario() {return this.id_usuario;}
 	//A FAZER: referenciar id_usuario para usuario
-	public Integer setIdUsuario() {return usuario.getIdUsuario();}
+	public void setIdUsuario() {this.id_usuario = usuario.getIdUsuario();}
 	
 	public Integer getIdNota() {return this.id_nota;}
 	public void setIdNota(Integer id_nota) {this.id_nota = id_nota;}
@@ -22,7 +22,7 @@ public class Notas {
 	public void setConteudoNota(String conteudo_nota) {this.conteudo_nota = conteudo_nota;}
 	public Integer getCategoria() {return categoria;}
 	//A FAZER: referenciar catetegoria para categoria
-	public Integer setCategoria() {return categorias.getIdCategoria();}
+	public void setCategoria() {this.categoria = categorias.getIdCategoria();}
 	
 
 }

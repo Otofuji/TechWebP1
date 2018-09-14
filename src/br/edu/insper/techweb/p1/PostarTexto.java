@@ -56,16 +56,21 @@ public class PostarTexto extends HttpServlet {
 		usuario.setSobrenome("sobrenome");
 		usuario.setSenha("senha");
 		usuario.setIdUsuario(dao.updateId_Usuario());
+		System.out.println("Id Usuario em Usuarios: "+ usuario.getIdUsuario());
 		
 		categoria.setCategoria("categoria");
 		categoria.setIdUsuario();
 		categoria.setIdCategoria(dao.updateId_Categorias());
+		System.out.println("Id Usuario na Categorias: "+ categoria.getIdUsuario());
 		
 		String nota_form = request.getParameter("nota");
 		nota.setConteudoNota(nota_form);
 		nota.setTipoNota(1);
 		nota.setIdUsuario();
 		nota.setCategoria();
+		System.out.println("Id Usuario em Notas: "+ nota.getIdUsuario());
+		System.out.println("Id Categorias em Notas: "+ nota.getCategoria());
+		
 		
 		
 		dao.adicionaUsuario(usuario);

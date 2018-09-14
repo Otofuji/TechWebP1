@@ -17,6 +17,6 @@ public class Categorias {
 	public void setIdNota(Integer id_nota) {this.id_nota = id_nota;}
 	public String getCategoria() {return this.categoria;}
 	public void setCategoria(String categoria) {this.categoria = categoria;}
-	public Integer setIdUsuario() {return usuario.getIdUsuario();}
+	public void setIdUsuario() {this.id_usuario = usuario.getIdUsuario();}
 	
 }
