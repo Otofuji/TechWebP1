@@ -15,7 +15,7 @@ public class DAO {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "Viaggio1050@K360");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "rootpassword");
 			
 		} 
 		
@@ -30,7 +30,7 @@ public class DAO {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "Viaggio1050@K360");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "rootpassword");
 			PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Usuarios");
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
@@ -66,7 +66,7 @@ public class DAO {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "Viaggio1050@K360");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "rootpassword");
 			PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Categorias");
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
@@ -101,7 +101,7 @@ public class DAO {
 		List<Notas> notas = new ArrayList<Notas>();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "Viaggio1050@K360");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "rootpassword");
 			PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Notas");
 			ResultSet rs = stmt.executeQuery();
 			
@@ -128,7 +128,7 @@ public class DAO {
 	public void close() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "Viaggio1050@K360");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "rootpassword");
 			connection.close();
 		} 
 		
@@ -145,7 +145,7 @@ public class DAO {
 		String sql = "INSERT INTO Usuarios" + "(email,nome,sobrenome,senha) values(?,?,?,?)";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "Viaggio1050@K360");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "rootpassword");
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, usuario.getEmail());
 			stmt.setString(2, usuario.getNome());
@@ -166,7 +166,7 @@ public class DAO {
 		String sql = "INSERT INTO Categorias" + "(categoria, id_usuario) values(?,?)";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "Viaggio1050@K360");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "rootpassword");
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, categoria.getCategoria());
 			stmt.setInt(2, 3);
@@ -183,7 +183,7 @@ public class DAO {
 	public void adicionaNota(Notas nota) {
 		String sql = "INSERT INTO Notas" + "(tipo_nota,conteudo_nota, id_usuario, categoria) values(?,?,?,?)";
 		try {
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "Viaggio1050@K360");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "rootpassword");
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setInt(1, nota.getTipoNota());
 			stmt.setString(2, nota.getConteudoNota());
@@ -205,7 +205,7 @@ public class DAO {
 		String sql = "UPDATE Usuarios SET " + "email=?, nome=?, sobrenome=? WHERE id_usuario=?";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "Viaggio1050@K360");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "rootpassword");
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1,  usuario.getEmail());
 			stmt.setString(2, usuario.getNome());
@@ -226,7 +226,7 @@ public class DAO {
 		String sql = "UPDATE Usuarios SET " + "categoria=? WHERE id_categoria=?";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "Viaggio1050@K360");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "rootpassword");
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1,  categoria.getCategoria());
 			stmt.setInt(2,  categoria.getIdCategoria());
@@ -243,7 +243,7 @@ public class DAO {
 		String sql = "UPDATE Notas SET " + "tipo_nota=?, conteudo_nota=? WHERE id_nota=?";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "Viaggio1050@K360");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "rootpassword");
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setInt(1, nota.getTipoNota());
 			stmt.setString(2, nota.getConteudoNota());
@@ -261,7 +261,7 @@ public class DAO {
 	public void removeUsuario(Integer id_usuario) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "Viaggio1050@K360");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "rootpassword");
 			PreparedStatement stmt = connection.prepareStatement("DELETE FROM Usuarios WHERE id=?");
 			stmt.setLong(1, id_usuario);
 			stmt.execute();
@@ -276,7 +276,7 @@ public class DAO {
 	public void removeCategoria(Integer id_categoria) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "Viaggio1050@K360");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "rootpassword");
 			PreparedStatement stmt = connection.prepareStatement("DELETE FROM Categorias WHERE id+?");
 			stmt.setLong(1, id_categoria);
 			stmt.execute();
@@ -291,7 +291,7 @@ public class DAO {
 	public void removeNota(Integer id_nota) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "Viaggio1050@K360");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "rootpassword");
 			PreparedStatement stmt = connection.prepareStatement("DELETE FROM Notas WHERE id_nota=?");
 			stmt.setLong(1,  id_nota);
 			stmt.execute();
@@ -308,7 +308,7 @@ public class DAO {
 		int id = 0;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "Viaggio1050@K360");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "rootpassword");
 			PreparedStatement stmt = connection.prepareStatement("SELECT id_usuario FROM Usuarios;", Statement.RETURN_GENERATED_KEYS);
 			stmt.execute();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Usuarios");
@@ -328,7 +328,7 @@ public class DAO {
 		int id = 0;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "Viaggio1050@K360");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "rootpassword");
 			PreparedStatement stmt = connection.prepareStatement("SELECT id_usuario FROM Categorias;", Statement.RETURN_GENERATED_KEYS);
 			stmt.execute();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Categorias");
@@ -341,7 +341,7 @@ public class DAO {
 		catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		return id;
+		return id; 
 	}
 
 }
