@@ -41,14 +41,12 @@ public class ApagarTexto extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
-	}
-	
-	private void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DAO dao = new DAO();
-		Notas nota = new Notas();
-		System.out.println("Id em Notas: "+ nota.getIdNota());
-		dao.removeNota(nota.getIdNota());
+		
+		dao.removeNota();
 		request.getRequestDispatcher("result.jsp").forward(request, response);
 	}
+	
+	
 
 }

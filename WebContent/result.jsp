@@ -28,15 +28,9 @@
 	</p>
 
 	<form action="postarTexto" method = "post">
-
-
-
-
 		<semi> Nova nota </semi>
 		<br> <input type="text" name="nota"><br>
-<!-- 		<input type="submit" value="Salvar" /> -->
 	</form>
-<!--<p>Você escreveu: ${ conteudo}.</p> -->
 
 <table border='1'>
 <% DAO dao = new DAO();
@@ -44,7 +38,10 @@
  for (Notas nota : notas ) { %>
  <tr>
  <td><%=nota.getConteudoNota()%>
+ 
+
  <form action="${pageContext.request.contextPath}/apagarTexto" method="post">
+    <input type="hidden" id="custId" name="notaId" value="<%=nota.getIdNota()%>">
     <input type="submit" name="apagar" value="Apagar" />
 </form>
  </td>
@@ -55,5 +52,3 @@
 </body>
 </body>
 </html>
-
-

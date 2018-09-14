@@ -15,29 +15,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet("/postarTexto")
 public class PostarTexto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-   
 	public PostarTexto() {
 		super();
 	}
 	
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		process(request,response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
@@ -52,28 +41,19 @@ public class PostarTexto extends HttpServlet {
 		usuario.setNome("nome");
 		usuario.setSobrenome("sobrenome");
 		usuario.setSenha("senha");
-		//usuario.setIdUsuario(dao.updateId_Usuario());
-		System.out.println("Id Usuario em Usuarios: "+ usuario.getIdUsuario());
 		
 		categoria.setCategoria("categoria");
 		categoria.setIdUsuario();
-		//categoria.setIdCategoria(dao.updateId_Categorias());
-		System.out.println("Id Usuario na Categorias: "+ categoria.getIdUsuario());
 		
 		String nota_form = request.getParameter("nota");
 		nota.setConteudoNota(nota_form);
 		nota.setTipoNota(1);
 		nota.setIdUsuario();
 		nota.setCategoria();
-		System.out.println("Id Usuario em Notas: "+ nota.getIdUsuario());
-		System.out.println("Id Categorias em Notas: "+ nota.getCategoria());
-		
-		
-		
+	
 		dao.adicionaUsuario(usuario);
 		dao.adicionaCategoria(categoria);
 		dao.adicionaNota(nota);
 		request.getRequestDispatcher("result.jsp").forward(request, response);
 	}
-
 }
