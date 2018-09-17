@@ -11,7 +11,6 @@ public class Notas {
 	private Integer categoria;
 	
 	public Integer getIdUsuario() {return this.id_usuario;}
-	//A FAZER: referenciar id_usuario para usuario
 	public void setIdUsuario() {this.id_usuario = usuario.getIdUsuario();}
 	
 	public Integer getIdNota() {return this.id_nota;}
@@ -21,7 +20,6 @@ public class Notas {
 	public String getConteudoNota() {return conteudo_nota;}
 	public void setConteudoNota(String conteudo_nota) {this.conteudo_nota = conteudo_nota;}
 	public Integer getCategoria() {return categoria;}
-	//A FAZER: referenciar catetegoria para categoria
 	public void setCategoria() {this.categoria = categorias.getIdCategoria();}
 	
 

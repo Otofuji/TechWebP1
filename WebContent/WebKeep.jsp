@@ -24,7 +24,7 @@
 
 	<form action="postarTexto" method = "post">
 		<semi> Nova nota </semi>
-		<br> <input type="text" name="nota"><br>
+		<br> <input type="text" name="nota" autocomplete = off autofocus = autofocus ><br>
 	</form>
 
 <table border='0'>
@@ -37,10 +37,9 @@
     <input type="hidden" id="custId" name="notaId" value="<%=nota.getIdNota()%>">
     <input type="submit" name="apagar" value="x" />
 </form>
-<form action="${pageContext.request.contextPath}/editarTexto" method="post">
+<form action="${pageContext.request.contextPath}/alteraTexto" method="post">
     <input type="hidden" id="custId" name="notaId" value="<%=nota.getIdNota()%>">
-    <input type="submit" name="editar" value="+" />
- <%=nota.getConteudoNota()%>
+  	<input type="text" name="nota" value = "<%=nota.getConteudoNota()%>" autocomplete = off >
  
 
 

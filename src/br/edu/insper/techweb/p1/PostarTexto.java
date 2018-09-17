@@ -51,7 +51,7 @@ public class PostarTexto extends HttpServlet {
 		dao.adicionaUsuario(usuario);
 		dao.adicionaCategoria(categoria);
 		dao.adicionaNota(nota);
-		request.getRequestDispatcher("result.jsp").forward(request, response);
+		request.getRequestDispatcher("WebKeep.jsp").forward(request, response);
 	}
 	
 	
