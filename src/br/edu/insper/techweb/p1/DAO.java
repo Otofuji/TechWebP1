@@ -239,14 +239,14 @@ public class DAO {
 		}
 	}
 	
-	public void alteraNota(Integer id_nota) {
+	public void alteraNota(Integer id_nota, String conteudo_nota) {
 		String sql = "UPDATE Notas SET " + "conteudo_nota=? WHERE id_nota=?";
-		Notas nota = new Notas();
+		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebKeep?verifyServerCertificate=false&useSSL=true", "root", "rootpassword");
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setString(1, nota.getConteudoNota());
+			stmt.setString(1, conteudo_nota);
 			stmt.setInt(2, id_nota);
 			stmt.execute();
 			stmt.close();
